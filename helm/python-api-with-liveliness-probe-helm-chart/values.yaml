@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: 522836376191.dkr.ecr.eu-north-1.amazonaws.com/ecr-python-api
+  tag: latest
+  pullPolicy: Always
+
+service:
+  port: 80
+
+ingress:
+  enabled: true
+  host: ""
+
+persistence:
+  enabled: false
+  storageClass: "gp2"
+  size: 1Gi

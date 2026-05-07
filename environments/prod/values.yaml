@@ -1,0 +1,13 @@
+replicaCount: 3
+
+ingress:
+  enabled: true
+  host: api.prod.example.com
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+
+persistence:
+  enabled: true
+  storageClass: "gp2" 
+  size: 1Gi
