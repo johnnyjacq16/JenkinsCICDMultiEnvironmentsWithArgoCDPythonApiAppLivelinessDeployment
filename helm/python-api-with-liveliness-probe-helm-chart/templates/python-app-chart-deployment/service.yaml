@@ -11,5 +11,5 @@ spec:
     app: python-api-link-service-to-python-app-label
 
   ports:
-    - port: {{ .Values.service.port }}
+    - port: {{ .Values.pythonApp.service.port }}
       targetPort: 8000

@@ -1,18 +1,32 @@
-replicaCount: 1
+# Python API Settings
+pythonApp:
+  replicaCount: 1
+  image:
+    repository: 522836376191.dkr.ecr.eu-north-1.amazonaws.com/ecr-python-api
+    tag: latest
+    pullPolicy: Always
+  containerPort: 8000
+  service:
+    port: 80
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
 
-image:
-  repository: 522836376191.dkr.ecr.eu-north-1.amazonaws.com/ecr-python-api
-  tag: latest
-  pullPolicy: Always
+# Redis Settings
+redis:
+  enabled: true
+  image: redis:7   # Updated from alpine to redis:7
+  port: 6379
+  persistence:
+    enabled: false # Set to true in values-prod.yaml
+    storageClass: "gp2"
+    size: 1Gi
 
-service:
-  port: 80
-
+# Shared/Global Settings
 ingress:
   enabled: true
   host: ""
-
-persistence:
-  enabled: false
-  storageClass: "gp2"
-  size: 1Gi
