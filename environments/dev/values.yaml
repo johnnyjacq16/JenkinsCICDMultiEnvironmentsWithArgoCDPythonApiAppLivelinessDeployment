@@ -1,11 +1,18 @@
-replicaCount: 1
+# Python API Settings
+pythonApp:
+  replicaCount: 1
 
+# Redis Settings
+# Overriding base defaults for the development environment
+redis:
+  enabled: true
+  persistence:
+    enabled: false  # Dev usually doesn't need persistent storage for Redis
+
+# Shared/Global Settings
 ingress:
   enabled: true
   host: dev.api.example.com
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-
-persistence:
-  enabled: false
